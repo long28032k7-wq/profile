@@ -1,0 +1,135 @@
+/* ===== Chung ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f3f4f6;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #1f2937;
+  padding: 24px 0;
+}
+
+/* ===== Tờ CV khổ A4 ===== */
+.cv {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  background: #fff;
+  padding: 15mm 18mm;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Nút in (góc trên bên phải) ===== */
+.print-btn {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  background: #1e3a8a;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: 9px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===== Phần đầu: ảnh + thông tin ===== */
+.header {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.photo {
+  width: 95px;
+  height: 115px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 22px;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.position {
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 cột */
+  gap: 3px 16px;
+}
+
+/* ===== Tiêu đề từng mục ===== */
+.section {
+  margin-top: 12px;
+}
+
+.section h2 {
+  font-size: 13.5px;
+  text-transform: uppercase;
+  color: #1e3a8a;
+  border-bottom: 1.5px solid #1e3a8a;
+  padding-bottom: 2px;
+  margin-bottom: 7px;
+}
+
+/* ===== Dòng 2 đầu: trái - phải ===== */
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project {
+  margin-bottom: 10px;
+}
+
+.item {
+  margin-top: 2px;
+}
+
+/* Danh sách gạch đầu dòng cấp 2 (◦) */
+.item ul {
+  list-style: none;
+  padding-left: 16px;
+}
+
+.item li::before {
+  content: "◦ ";
+}
+
+/* ===== Khi in ===== */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    background: #fff;
+    padding: 0;
+  }
+
+  .print-btn {
+    display: none;
+  }
+
+  .cv {
+    min-height: 0;
+    box-shadow: none;
+  }
+
+  .project {
+    break-inside: avoid;
+  }
+}
